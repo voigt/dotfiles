@@ -12,10 +12,16 @@ repo.
 
 # On a new machine
 
+1. Clone this repo
+
 ```
 # install all brew dependencies
 brew bundle
+```
 
+2. Install 1Password
+
+3. Proceed with setup
 # copy dotfiles to the appropriate places
 make
 

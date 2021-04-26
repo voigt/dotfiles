@@ -17,6 +17,7 @@ cask 'alacritty'
 cask 'spotify'
 cask 'cleanshot'
 cask 'brave-browser'
+cask "visual-studio-code"
 
 # Job
 cask 'docker'

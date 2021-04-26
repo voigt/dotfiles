@@ -302,8 +302,8 @@ eval "$(jump shell)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Vodafone
-export PATH="$PATH:/Users/cvoigt/vodafone/sol/vfde-aws-cdk/bin"
-export PATH=$PATH:/Users/cvoigt/vodafone/sol
+export PATH="$PATH:/Users/cvoigt/Customers/Vodafone/Solstice/sol/vfde-aws-cdk/bin"
+export PATH=$PATH:/Users/cvoigt/Customers/Vodafone/Solstice/sol
 export VFDE_SOL_DEFAULT_ROLE=SysAdmin
 source <(account_util account_alias --project sol)
 source <(account_util eks_alias --project sol)
@@ -315,6 +315,6 @@ export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH=$PATH:$(brew --prefix)/opt/python/libexec/bin
 export PATH=$PATH:/Users/c.voigt/Library/Python/3.9/bin/
 export PATH="$PATH:/usr/local/opt/yq@3/bin"
-alias sol="cd /Users/cvoigt/vodafone/sol"
+alias sol="cd /Users/cvoigt/Customers/Vodafone/Solstice/sol"
 source ~/.zsh/vfde_sol.zsh
 source ~/.zsh/osx_gnu.zsh
