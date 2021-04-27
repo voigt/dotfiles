@@ -93,7 +93,8 @@ setopt PUSHDSILENT
 # =============
 
 ## Command history configuration
-HISTFILE=$HOME/.zsh_history
+# HISTFILE=$HOME/.zsh_history
+HISTFILE=$HOME'/Library/Mobile Documents/com~apple~CloudDocs/zsh_history'
 HISTSIZE=1000000
 SAVEHIST=1000000
 
@@ -302,8 +303,8 @@ eval "$(jump shell)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Vodafone
-export PATH="$PATH:/Users/cvoigt/Customers/Vodafone/Solstice/sol/vfde-aws-cdk/bin"
-export PATH=$PATH:/Users/cvoigt/Customers/Vodafone/Solstice/sol
+export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/Vodafone/Solstice/git/vfde-aws-cdk/bin'
+export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/Vodafone/Solstice/bin'
 export VFDE_SOL_DEFAULT_ROLE=SysAdmin
 source <(account_util account_alias --project sol)
 source <(account_util eks_alias --project sol)
@@ -315,6 +316,8 @@ export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH=$PATH:$(brew --prefix)/opt/python/libexec/bin
 export PATH=$PATH:/Users/c.voigt/Library/Python/3.9/bin/
 export PATH="$PATH:/usr/local/opt/yq@3/bin"
-alias sol="cd /Users/cvoigt/Customers/Vodafone/Solstice/sol"
+alias sol="cd /Users/cvoigt/OneDrive\ -\ Reply/Customers/Vodafone/Solstice/git"
 source ~/.zsh/vfde_sol.zsh
 source ~/.zsh/osx_gnu.zsh
+
+alias odp="cd /Users/cvoigt/OneDrive\ -\ Reply/Customers/Volkswagen/ODP/git"
