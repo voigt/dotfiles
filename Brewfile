@@ -24,6 +24,7 @@ cask 'docker'
 cask 'lastpass'
 cask 'iterm2'
 cask 'drawio'
+cask 'firefox'
 
 # Messengers
 cask 'signal'
