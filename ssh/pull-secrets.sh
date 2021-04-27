@@ -11,7 +11,9 @@ op get document 'github_rsa' > github_rsa
 op get document 'cv_cetus_uberspace' > cv_uberspace
 op get document 'jmb_horologium_uberspace' > jmb_uberspace
 op get document 'currywurst' > currywurst
-#op get document 'zsh_private' > zsh_private
+op get document 'digitalocean_dev' > digitalocean_dev 
+
+# op get document 'zsh_private' > zsh_private
 #op get document 'zsh_history' > zsh_history
 
 # rm ~/.ssh/github_rsa
@@ -26,6 +28,8 @@ ln -snf $(pwd)/jmb_uberspace ~/.ssh/jmb_uberspace
 chmod 0600 ~/.ssh/jmb_uberspace
 ln -snf $(pwd)/currywurst ~/.ssh/volkswagen
 chmod 0600 ~/.ssh/volkswagen
+ln -snf $(pwd)/digitalocean_dev ~/.ssh/digitalocean_dev
+chmod 0600 ~/.ssh/digitalocean_dev
 # ln -s $(pwd)/zsh_private ~/.zsh_private
 # ln -s $(pwd)/zsh_history ~/.zsh_history
 
