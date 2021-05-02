@@ -18,6 +18,7 @@ cask 'spotify'
 cask 'cleanshot'
 cask 'brave-browser'
 cask "visual-studio-code"
+cask "typora"
 
 # Job
 cask 'docker'
@@ -68,6 +69,7 @@ brew "hub"
 brew "hugo"
 brew "jq"
 brew "jump"
+brew "kind"
 brew "pkg-config"
 brew "protobuf"
 brew "rclone"
@@ -75,7 +77,7 @@ brew "reattach-to-user-namespace"
 brew "rust"
 brew "shellcheck"
 brew "st"
-brew "terraform"
+# brew "terraform"
 brew "tig"
 brew "tmux"
 brew "tree"
