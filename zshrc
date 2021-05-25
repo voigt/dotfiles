@@ -9,6 +9,9 @@
 # It contains GOPATH, some functions, aliases etc...
 [ -r ~/.zsh_private ] && source ~/.zsh_private
 
+[ -r ~/.zsh/vfde_sol.zsh ] && source ~/.zsh/vfde_sol.zsh
+#[ -r ~/.zsh_private ] && source ~/.zsh_private
+
 # =============
 #    ALIAS
 # =============
@@ -303,7 +306,7 @@ eval "$(jump shell)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Vodafone
-export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/Vodafone/Solstice/git/vfde-aws-cdk/bin'
+export PATH=$PATH:'/Users/cvoigt/git/customers/vodafone/Solstice/vfde-aws-cdk/bin'
 export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/Vodafone/Solstice/bin'
 export VFDE_SOL_DEFAULT_ROLE=SysAdmin
 source <(account_util account_alias --project sol)
@@ -321,3 +324,7 @@ source ~/.zsh/vfde_sol.zsh
 source ~/.zsh/osx_gnu.zsh
 
 alias odp="cd /Users/cvoigt/OneDrive\ -\ Reply/Customers/Volkswagen/ODP/git"
+if [ -e /Users/cvoigt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cvoigt/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+
+eval "$(direnv hook zsh)"
