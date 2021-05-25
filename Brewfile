@@ -19,6 +19,8 @@ cask 'cleanshot'
 cask 'brave-browser'
 cask "visual-studio-code"
 cask "typora"
+cask "sublime-text"
+cask "sublime-merge"
 
 # Job
 cask 'docker'
@@ -44,6 +46,7 @@ brew "cfssl"
 brew "colordiff"
 brew "coreutils"
 brew "curl"
+brew "direnv"
 brew "go"
 brew "dep"
 brew "detox"
