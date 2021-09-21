@@ -1,0 +1,109 @@
+#!/bin/bash
+
+LOCATION="${HOME}/.ssh"
+DOCUMENT_NAME=$1
+VAULT_NAME=$2
+
+CREATE=0
+
+op_session_exists () {
+    op get account &> /dev/null
+    return $?
+}
+
+op_session_exists
+if [ $? -ne 0 ]; then
+    echo "✗ No active 1Password session!"
+    echo ""
+    echo "  Sign in via by exporting OP_SESSION_my"
+    echo ""
+    echo "    $ export OP_SESSION_my=\$(op signin https://my.1password.com voigt.christoph@gmail.com --output=raw)"
+    echo ""
+    exit 1
+fi
+
+# check if op vault exists
+vault_exists () {
+    op get vault "${1}" &> /dev/null
+    return $?
+}
+
+vault_exists ${VAULT_NAME}
+if [ $? -eq 0 ]; then
+    echo "✓ Vault ${VAULT_NAME} exists!"
+else
+    CREATE=1
+    echo "✗ Vault ${VAULT_NAME} does not exist!"
+fi
+
+# check document with name in vault exists
+op_document_exists () {
+    op get document "${1}" --vault "${2}" &> /dev/null
+    return $?
+}
+
+op_document_exists ${DOCUMENT_NAME} ${VAULT_NAME}
+if [ $? -eq 0 ]; then
+    CREATE=1
+    echo "✗ Document ${DOCUMENT_NAME} exists!"
+else
+    echo "✓ Document ${DOCUMENT_NAME} does not exist!"
+fi
+
+# check document with name in LOCATION exists
+file_exists () {
+    if [[ $(find "${1}" -name "${2}*" | wc -l) -eq 0 ]]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+file_exists "${LOCATION}/" "${DOCUMENT_NAME}"
+if [ $? -eq 0 ]; then
+    CREATE=1
+    echo "✗ File ${DOCUMENT_NAME} exists!"
+else
+    echo "✓ File ${DOCUMENT_NAME} does not exist!"
+fi
+
+# Check if keys with name already existing
+if [ $CREATE -eq 0 ]; then
+    echo "  Generating Key ..."
+    cat /dev/zero | ssh-keygen -t ed25519 -N "" -C "voigt.christoph@gmail.com" -f "${LOCATION}/${DOCUMENT_NAME}" > /dev/null
+    if [ $? -ne 0 ]; then
+        echo "Error generating Keys..."
+        exit 1
+    fi
+    echo "✓ Keys generated ..."
+
+    echo "  Checking keys ..."
+    find "${LOCATION}/" -name "${DOCUMENT_NAME}*" | sed 's/^/    /'
+    if [ $? -ne 0 ]; then
+        echo "Error creating Keys have not been created..."
+        exit 1
+    fi
+    echo "✓ Keys available in ${LOCATION} ..."
+
+    echo "  Storing in 1Password..."
+    op create document "${LOCATION}/${DOCUMENT_NAME}" --vault "${VAULT_NAME}"  > /dev/null
+    if [ $? -ne 0 ]; then
+        echo "Error storing private key to 1Password ..."
+        exit 1
+    fi
+    op create document "${LOCATION}/${DOCUMENT_NAME}.pub" --vault "${VAULT_NAME}" > /dev/null
+    if [ $? -ne 0 ]; then
+        echo "Error storing keys to 1Password..."
+        exit 1
+    fi
+    echo "✓ Successfully stored in 1Password ..."
+
+    echo ""
+    echo "  Get Private Key with"
+    echo "    $ op get document '${DOCUMENT_NAME}' --vault '${VAULT_NAME}'"
+    echo ""
+    echo "  Get Public Key with"
+    echo "    $ op get document '${DOCUMENT_NAME}.pub' --vault '${VAULT_NAME}'"
+    echo ""
+    echo "Fin!"
+fi
