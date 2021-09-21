@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "wagoodman/dive"
+tap "hashicorp/tap"
 
 # Configure where our applications go
 cask_args appdir: '/Applications'
@@ -21,6 +22,8 @@ cask "visual-studio-code"
 cask "typora"
 cask "sublime-text"
 cask "sublime-merge"
+cask "insomnia"
+cask "alt-tab"
 
 # Job
 cask 'docker'
@@ -28,6 +31,7 @@ cask 'lastpass'
 cask 'iterm2'
 cask 'drawio'
 cask 'firefox'
+cask 'vagrant'
 
 # Messengers
 cask 'signal'
@@ -40,6 +44,7 @@ cask 'discord'
 # cask '1password'
 
 cask "1password-cli"
+brew "angle-grinder"
 brew "awscli"
 brew "bash"
 brew "cfssl"
@@ -73,6 +78,7 @@ brew "hugo"
 brew "jq"
 brew "jump"
 brew "kind"
+brew "octant"
 brew "pkg-config"
 brew "protobuf"
 brew "rclone"
