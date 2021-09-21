@@ -9,7 +9,9 @@
 # It contains GOPATH, some functions, aliases etc...
 [ -r ~/.zsh_private ] && source ~/.zsh_private
 
-[ -r ~/.zsh/vfde_sol.zsh ] && source ~/.zsh/vfde_sol.zsh
+export PATH=$PATH:'/Users/cvoigt/git/github/voigt/dotfiles/bin'
+
+# [ -r ~/.zsh/vfde_sol.zsh ] && source ~/.zsh/vfde_sol.zsh
 #[ -r ~/.zsh_private ] && source ~/.zsh_private
 
 # =============
@@ -328,3 +330,12 @@ if [ -e /Users/cvoigt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cvoigt/
 
 
 eval "$(direnv hook zsh)"
+export PATH="$PATH:/Users/cvoigt/Downloads"
+export PATH="$PATH:/Users/cvoigt/OneDrive\ -\ Reply/Customers/SAP/bin"
+export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/SAP/Kyma/bin'
+export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/SAP/Kyma/bin'
+export PATH=$PATH:'/Users/cvoigt/git/github/voigt/talos/'
+
+# gcloud
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc

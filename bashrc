@@ -193,3 +193,4 @@ eval "$(jump shell)"
 eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
