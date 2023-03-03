@@ -4,6 +4,8 @@
 
 ZSH_TMUX_AUTOSTART=true
 
+# export HISTFILE=$(echo $(ls /Users/cvoigt/Library/Mobile\ Documents/com~apple~CloudDocs/zsh_history))
+
 # TODO:
 # https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
 

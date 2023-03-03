@@ -14,36 +14,33 @@ cask_args appdir: '/Applications'
 tap 'homebrew/cask'
 
 # Additional Apps
-cask 'alacritty'
-cask 'spotify'
-cask 'cleanshot'
-cask 'brave-browser'
-cask "visual-studio-code"
-cask "typora"
-cask "sublime-text"
-cask "sublime-merge"
-cask "insomnia"
+# cask 'alacritty'
+cask "1password-cli"
+cask "1password"
 cask "alt-tab"
+cask "amethyst"
+cask "cleanshot"
+cask "docker"
+cask "drawio"
+cask "iterm2"
+cask "logseq"
+cask "mutify"
+cask "soundsource"
+cask "spotify"
+cask "typora"
+cask "vagrant"
+cask "visual-studio-code"
 
-# Job
-cask 'docker'
-cask 'lastpass'
-cask 'iterm2'
-cask 'drawio'
+# Browsers
+cask 'brave-browser'
 cask 'firefox'
-cask 'vagrant'
+cask 'google-chrome'
 
 # Messengers
 cask 'signal'
 cask 'slack'
 cask 'discord'
 
-# Apps from the AppStore
-# cask 'craft.do'
-# cask 'agenda'
-# cask '1password'
-
-cask "1password-cli"
 brew "angle-grinder"
 brew "awscli"
 brew "bash"
@@ -52,12 +49,11 @@ brew "colordiff"
 brew "coreutils"
 brew "curl"
 brew "direnv"
-brew "go"
-brew "dep"
+# brew "go" # installed via asdf
 brew "detox"
 brew "direnv"
 brew "doctl"
-brew "etcd"
+# brew "etcd"
 brew "exiftool"
 brew "ffmpeg"
 brew "fzf"
@@ -83,14 +79,11 @@ brew "pkg-config"
 brew "protobuf"
 brew "rclone"
 brew "reattach-to-user-namespace"
-brew "rust"
+# brew "rust" # todo: install via asdf
 brew "shellcheck"
-brew "st"
-# brew "terraform"
-brew "tig"
+# brew "terraform" # installed via asdf
 brew "tmux"
 brew "tree"
-brew "vault"
 brew "vim"
 brew "wget"
 brew "watch"
@@ -99,3 +92,7 @@ brew "z"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+
+# fun
+cask "cool-retro-term"
+cask "daisydisk"

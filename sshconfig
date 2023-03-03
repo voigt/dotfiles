@@ -1,32 +1,28 @@
 Host *
- AddKeysToAgent yes
- ForwardAgent yes
- ServerAliveInterval 240
-# UseKeychain yes
- IdentityFile ~/.ssh/id_rsa
+  AddKeysToAgent yes
+  ForwardAgent yes
+  ServerAliveInterval 240
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityFile ~/.ssh/id_rsa
+
+Host ssh.dev.azure.com
+  IdentityFile ~/.ssh/vw-elli.pub
+  IdentitiesOnly yes
+  PubkeyAcceptedKeyTypes=ssh-rsa
 
 Host github.com
   HostName github.com
-  IdentityFile ~/.ssh/github_rsa
+  User git
+  IdentityFile ~/.ssh/github_rsa.pub
   IdentitiesOnly yes
 
 Host gitlab.com
   HostName gitlab.com
-  IdentityFile ~/.ssh/gitlab_rsa
+  IdentityFile ~/.ssh/gitlab_rsa.pub
   IdentitiesOnly yes
 
-Host cetus
-  User cv
-  HostName cetus.uberspace.de
-  IdentityFile ~/.ssh/cv_uberspace
-
-Host workstation
-  User root
-  HostName workstation.christophvoigt.com
-  IdentityFile ~/.ssh/github_rsa
-  Port 3222
-
-Host horologium
+Host nicetohavemag
   User jmb
-  HostName horologium.uberspace.de
-  IdentityFile ~/.ssh/jmb_uberspace
+  HostName dione.uberspace.de
+  IdentityFile ~/.ssh/jmb_horologium_uberspace.pub
+  IdentitiesOnly yes
