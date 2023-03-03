@@ -1,26 +1,9 @@
 [user]
 	name = Christoph Voigt
 	email = voigt.christoph@gmail.com
-[alias]
-	st = status -sb
-	ci = commit
-	all = commit -am
-	br = branch
-	co = checkout
-	di = diff
-	dic = diff --cached
-	lg = log -p
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	ls = ls-files
-	# Show files ignored by git:
-	ign = ls-files -o -i --exclude-standard
-
-	shoot = push origin --delete
-	unstage = reset HEAD --
-	prev = checkout -
-	discard = checkout -- 
-
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILf3iITEYLhuQXeyMmymKbJkhypfUKPJRtHpy5zIGSD/
+[includeIf "gitdir:/Users/cvoigt/git/vw-elli"]
+	path = /Users/cvoigt/git/vw-elli/.gitconfig
 [color]
 	ui = auto
 [color "branch"]
@@ -36,23 +19,17 @@
 	editor = vim
 	quotepath = false
 	excludesfile = /Users/cvoigt/.gitignore
-[credential]
-	helper = !codecommit_credential_helper.sh $@
-	UseHttpPath = true
-[credential "https://git-codecommit.eu-central-1.amazonaws.com"]
-	helper = !aws codecommit credential-helper $@
-	UseHttpPath = true
 [github]
 	user = voigt
-[mergetool]
+[gitlab]
+	user = c.voigt
+[merge]
+	tool = vcode
+[mergetool "vscode"]
+        cmd = code --wait $MERGED
 	keepBackup = true
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
 [push]
 	default = current
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [pull]
 	rebase = false
 [merge]
@@ -60,5 +37,9 @@
 [branch]
 	autosetuprebase = always
 	autosetupmerge = always
-[url "https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/"]
-	insteadOf = aws:
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
