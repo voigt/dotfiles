@@ -2,6 +2,8 @@
 #    INIT
 # =============
 
+ZSH_TMUX_AUTOSTART=true
+
 # TODO:
 # https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html
 
@@ -11,18 +13,21 @@
 
 export PATH=$PATH:'/Users/cvoigt/git/github/voigt/dotfiles/bin'
 
-# [ -r ~/.zsh/vfde_sol.zsh ] && source ~/.zsh/vfde_sol.zsh
-#[ -r ~/.zsh_private ] && source ~/.zsh_private
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="${PATH}:${HOME}/bin"
+export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/go/src/github.com/voigt/zls/zig-out/bin"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # =============
 #    ALIAS
 # =============
 alias ..='cd ..'
-
-alias t="tig status"
-alias tigs="tig status" #old habits don't die
+alias vogit="cd ~/go/src/github.com/voigt"
+alias gov="cd ~/go/src/github.com/voigt"
 alias d='git diff' 
 alias vi='vim'
+alias typora="open -a typora"
 
 case `uname` in
   Darwin)
@@ -60,9 +65,6 @@ function fe() (
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 )
-
-alias -s go='go run'
-alias hs='hugo server'
 
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
@@ -214,7 +216,7 @@ bindkey -e
 
 # [Ctrl-r] - Search backward incrementally for a specified string. The string
 # may begin with ^ to anchor the search to the beginning of the line.
-bindkey '^r' history-incremental-search-backward      
+bindkey '^r' history-incremental-search-backward
 
 if [[ "${terminfo[kpp]}" != "" ]]; then
   bindkey "${terminfo[kpp]}" up-line-or-history       # [PageUp] - Up a line of history
@@ -252,7 +254,6 @@ fi
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 
 # only exit if we're not on the last pane
-	
 exit() {
   if [[ -z $TMUX ]]; then
     builtin exit
@@ -267,28 +268,6 @@ exit() {
   else
     builtin exit
   fi
-}
-
-function switchgo() {
-  version=$1
-  if [ -z $version ]; then
-    echo "Usage: switchgo [version]"
-    return
-  fi
-
-  if ! command -v "go$version" > /dev/null 2>&1; then
-    echo "version does not exist, downloading with commands: "
-    echo "  go get golang.org/dl/go${version}"
-    echo "  go${version} download"
-    echo ""
-
-    go get "golang.org/dl/go${version}"
-    go${version} download
-  fi
-
-  go_bin_path=$(command -v "go$version")
-  ln -sf "$go_bin_path" "$GOBIN/go"
-  echo "Switched to ${go_bin_path}"
 }
 
 # ===================
@@ -307,35 +286,12 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(jump shell)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-### Vodafone
-export PATH=$PATH:'/Users/cvoigt/git/customers/vodafone/Solstice/vfde-aws-cdk/bin'
-export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/Vodafone/Solstice/bin'
-export VFDE_SOL_DEFAULT_ROLE=SysAdmin
-source <(account_util account_alias --project sol)
-source <(account_util eks_alias --project sol)
-
-export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/util-linux/bin:$PATH"
-export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-# Python 3.9 Settings
-export PATH=$PATH:$(brew --prefix)/opt/python/libexec/bin
-export PATH=$PATH:/Users/c.voigt/Library/Python/3.9/bin/
-export PATH="$PATH:/usr/local/opt/yq@3/bin"
-alias sol="cd /Users/cvoigt/OneDrive\ -\ Reply/Customers/Vodafone/Solstice/git"
-source ~/.zsh/vfde_sol.zsh
-source ~/.zsh/osx_gnu.zsh
-
-alias odp="cd /Users/cvoigt/OneDrive\ -\ Reply/Customers/Volkswagen/ODP/git"
-if [ -e /Users/cvoigt/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/cvoigt/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-
 eval "$(direnv hook zsh)"
 export PATH="$PATH:/Users/cvoigt/Downloads"
-export PATH="$PATH:/Users/cvoigt/OneDrive\ -\ Reply/Customers/SAP/bin"
-export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/SAP/Kyma/bin'
-export PATH=$PATH:'/Users/cvoigt/OneDrive - Reply/Customers/SAP/Kyma/bin'
-export PATH=$PATH:'/Users/cvoigt/git/github/voigt/talos/'
 
 # gcloud
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+. /usr/local/opt/asdf/libexec/asdf.sh
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
