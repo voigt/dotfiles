@@ -41,8 +41,12 @@ cask 'signal'
 cask 'slack'
 cask 'discord'
 
-brew "angle-grinder"
+# Cloud Provider
 brew "awscli"
+brew "doctl"
+brew "google-cloud-sdk"
+
+brew "angle-grinder"
 brew "bash"
 brew "cfssl"
 brew "colordiff"
@@ -52,7 +56,6 @@ brew "direnv"
 # brew "go" # installed via asdf
 brew "detox"
 brew "direnv"
-brew "doctl"
 # brew "etcd"
 brew "exiftool"
 brew "ffmpeg"

@@ -13,8 +13,7 @@ ZSH_TMUX_AUTOSTART=true
 # It contains GOPATH, some functions, aliases etc...
 [ -r ~/.zsh_private ] && source ~/.zsh_private
 
-export PATH=$PATH:'/Users/cvoigt/git/github/voigt/dotfiles/bin'
-
+export PATH="${PATH}:${HOME}/.asdf/shims"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:${HOME}/.local/bin"
@@ -277,8 +276,8 @@ exit() {
 # ===================
 
 # These are installed via github.com/voigt/dotfiles/Brewfile
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ===================
 #    THIRD PARTY
@@ -292,8 +291,7 @@ eval "$(direnv hook zsh)"
 export PATH="$PATH:/Users/cvoigt/Downloads"
 
 # gcloud
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
-. /usr/local/opt/asdf/libexec/asdf.sh
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
