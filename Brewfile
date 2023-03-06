@@ -43,6 +43,7 @@ cask 'discord'
 
 # Cloud Provider
 brew "awscli"
+brew "azure-cli"
 brew "doctl"
 cask "google-cloud-sdk"
 
