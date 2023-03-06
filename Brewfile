@@ -6,6 +6,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "wagoodman/dive"
 tap "hashicorp/tap"
+tap "bufbuild/buf"
 
 # Configure where our applications go
 cask_args appdir: '/Applications'
@@ -24,7 +25,6 @@ cask "docker"
 cask "drawio"
 cask "iterm2"
 cask "logseq"
-cask "mutify"
 cask "soundsource"
 cask "spotify"
 cask "typora"
@@ -44,9 +44,10 @@ cask 'discord'
 # Cloud Provider
 brew "awscli"
 brew "doctl"
-brew "google-cloud-sdk"
+cask "google-cloud-sdk"
 
 brew "angle-grinder"
+brew "bufbuild/buf/buf"
 brew "bash"
 brew "cfssl"
 brew "colordiff"
