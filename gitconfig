@@ -2,8 +2,8 @@
 	name = Christoph Voigt
 	email = voigt.christoph@gmail.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILf3iITEYLhuQXeyMmymKbJkhypfUKPJRtHpy5zIGSD/
-[includeIf "gitdir:/Users/cvoigt/git/vw-elli"]
-	path = /Users/cvoigt/git/vw-elli/.gitconfig
+[includeIf "gitdir:/Users/c.voigt/go/src/elli-eco"]
+	path = /Users/c.voigt/go/src/elli-eco/.gitconfig
 [color]
 	ui = auto
 [color "branch"]

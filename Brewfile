@@ -10,10 +10,8 @@ tap "bufbuild/buf"
 
 # Configure where our applications go
 cask_args appdir: '/Applications'
-
 # get brew cask for apps
 tap 'homebrew/cask'
-
 # Additional Apps
 # cask 'alacritty'
 cask "1password-cli"
@@ -30,23 +28,19 @@ cask "spotify"
 cask "typora"
 cask "vagrant"
 cask "visual-studio-code"
-
 # Browsers
 cask 'brave-browser'
 cask 'firefox'
 cask 'google-chrome'
-
 # Messengers
 cask 'signal'
 cask 'slack'
 cask 'discord'
-
 # Cloud Provider
 brew "awscli"
 brew "azure-cli"
 brew "doctl"
 cask "google-cloud-sdk"
-
 brew "angle-grinder"
 brew "bufbuild/buf/buf"
 brew "bash"
@@ -55,9 +49,9 @@ brew "colordiff"
 brew "coreutils"
 brew "curl"
 brew "direnv"
+brew "dlv"
 # brew "go" # installed via asdf
 brew "detox"
-brew "direnv"
 # brew "etcd"
 brew "exiftool"
 brew "ffmpeg"
@@ -69,17 +63,12 @@ brew "git-crypt"
 brew "gnu-sed"
 brew "gnupg"
 brew "graphviz"
-brew "kubernetes-cli"
-brew "kustomize"
-brew "k9s"
 brew "dive"
 brew "htop"
 brew "hub"
 brew "hugo"
 brew "jq"
 brew "jump"
-brew "kind"
-brew "octant"
 brew "pkg-config"
 brew "protobuf"
 brew "rclone"
@@ -97,7 +86,36 @@ brew "z"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-
 # fun
 cask "cool-retro-term"
 cask "daisydisk"
+
+# Job
+brew "checkov"
+brew "diff-so-fancy"
+brew "diffutils"
+brew "findutils"
+brew "gawk"
+brew "gnu-getopt"
+brew "gnu-indent"
+brew "gnu-tar"
+brew "gnutls"
+brew "grep"
+brew "gzip"
+brew "pre-commit"
+brew "tflint"
+brew "util-linux"
+brew "velero"
+cask "tableplus"
+cask "forticlient-vpn"
+tap "git-chglog/git-chglog"
+tap "warrensbox/tap"
+
+# Kubernetes
+brew "kubernetes-cli"
+brew "kubectx"
+brew "helm"
+brew "kustomize"
+brew "k9s"
+brew "kind"
+brew "octant"

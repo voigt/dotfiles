@@ -294,4 +294,8 @@ export PATH="$PATH:/Users/cvoigt/Downloads"
 source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
+# 💩
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/gradle@7/bin:$PATH"
