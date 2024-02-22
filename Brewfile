@@ -1,19 +1,16 @@
 tap "aybabtme/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "wagoodman/dive"
 tap "hashicorp/tap"
 tap "bufbuild/buf"
+tap "nats-io/nats-tools"
 
 # Configure where our applications go
 cask_args appdir: '/Applications'
 # get brew cask for apps
-tap 'homebrew/cask'
 # Additional Apps
-# cask 'alacritty'
 cask "1password-cli"
 cask "1password"
 cask "alt-tab"
@@ -47,6 +44,7 @@ brew "bash"
 brew "cfssl"
 brew "colordiff"
 brew "coreutils"
+brew "nats-io/nats-tools/nats"
 brew "curl"
 brew "direnv"
 brew "dlv"
@@ -105,10 +103,8 @@ brew "gzip"
 brew "pre-commit"
 brew "tflint"
 brew "util-linux"
-brew "velero"
 cask "tableplus"
 cask "forticlient-vpn"
-tap "git-chglog/git-chglog"
 tap "warrensbox/tap"
 
 # Kubernetes
@@ -118,4 +114,9 @@ brew "helm"
 brew "kustomize"
 brew "k9s"
 brew "kind"
-brew "octant"
+brew "velero"
+
+# Experimentation
+brew "zoxide"
+brew "bat"
+brew "entr"

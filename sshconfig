@@ -1,28 +1,47 @@
+Include ~/.orbstack/ssh/config
+Include /Users/c.voigt/.lima/default/ssh.config
+
+Host parallels
+  IdentitiesOnly yes
+  HostName 192.168.178.109
+  User parallels
+
 Host *
   AddKeysToAgent yes
   ForwardAgent yes
   ServerAliveInterval 240
+  Compression yes
+  IdentitiesOnly yes
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   IdentityFile ~/.ssh/id_rsa
 
-Host ssh.dev.azure.com
-  IdentityFile ~/.ssh/vw-elli.pub
-  IdentitiesOnly yes
-  PubkeyAcceptedKeyTypes=ssh-rsa
+Host turing01
+  HostName 192.168.178.201
+Host turing02
+  HostName 192.168.178.202
+Host turing03
+  HostName 192.168.178.203
+Host turing04
+  HostName 192.168.178.204
 
-Host github.com
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/github_rsa.pub
-  IdentitiesOnly yes
+Host turing01 turing02 turing03 turing04
+  User root
+  IdentityFile ~/.ssh/turingpi.pub
 
 Host gitlab.com
   HostName gitlab.com
   IdentityFile ~/.ssh/gitlab_rsa.pub
-  IdentitiesOnly yes
 
-Host nicetohavemag
-  User jmb
-  HostName dione.uberspace.de
-  IdentityFile ~/.ssh/jmb_horologium_uberspace.pub
-  IdentitiesOnly yes
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/github_rsa.pub
+
+# DevPod Start voigt-github-com.devpod
+Host voigt-github-com.devpod
+  ForwardAgent yes
+  LogLevel error
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  ProxyCommand /Applications/DevPod.app/Contents/MacOS/devpod-cli ssh --stdio --context default --user node voigt-github-com
+  User node
+# DevPod End voigt-github-com.devpod

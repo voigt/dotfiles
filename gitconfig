@@ -2,8 +2,8 @@
 	name = Christoph Voigt
 	email = voigt.christoph@gmail.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILf3iITEYLhuQXeyMmymKbJkhypfUKPJRtHpy5zIGSD/
-[includeIf "gitdir:/Users/c.voigt/go/src/elli-eco"]
-	path = /Users/c.voigt/go/src/elli-eco/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/vwdfive/"]
+	path = ~/go/src/github.com/vwdfive/.gitconfig
 [color]
 	ui = auto
 [color "branch"]
@@ -43,3 +43,8 @@
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
 	gpgsign = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
