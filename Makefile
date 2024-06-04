@@ -24,6 +24,7 @@ clean:
 	rm -f ~/.config/nvim/init.vim
 	rm -f ~/.bashrc
 	rm -f ~/.zshrc
+	rm -f ~/.config/fish/config.fish
 	rm -f ~/.config/starship.toml
 	rm -f ~/.tmux.conf
 	rm -f ~/.git-prompt.sh
