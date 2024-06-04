@@ -10,6 +10,7 @@ sync:
 	[ -f ~/.bashrc ] || ln -s $(PWD)/bashrc ~/.bashrc
 	[ -f ~/.zshrc ] || ln -s $(PWD)/zshrc ~/.zshrc
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
+	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 	[ -f ~/.tmux.conf ] || ln -s $(PWD)/tmuxconf ~/.tmux.conf
 	[ -f ~/.git-prompt.sh ] || ln -s $(PWD)/git-prompt.sh ~/.git-prompt.sh
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
@@ -23,6 +24,7 @@ clean:
 	rm -f ~/.config/nvim/init.vim
 	rm -f ~/.bashrc
 	rm -f ~/.zshrc
+	rm -f ~/.config/starship.toml
 	rm -f ~/.tmux.conf
 	rm -f ~/.git-prompt.sh
 	rm -f ~/.gitconfig

@@ -74,6 +74,7 @@ brew "rclone"
 brew "reattach-to-user-namespace"
 # brew "rust" # todo: install via asdf
 brew "shellcheck"
+brew starship
 # brew "terraform" # installed via asdf
 brew "tmux"
 brew "tree"

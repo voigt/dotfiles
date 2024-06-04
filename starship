@@ -1,0 +1,22 @@
+# Editor Vervollständigungen basierend auf dem Konfigurations-Schema erhalten
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Fügt eine Leerzeile zwischen den Eingabeaufforderungen ein
+add_newline = false
+
+# Ersetzt das '❯' Zeichen in der Prompt mit '➜'
+[character] # Der name des Moduls das wir ändern ist 'character'
+success_symbol = '[➜](bold green)' # Der 'success_symbol' Teil wird auf '➜' mit der farbe 'bold green' gesetzt
+
+# Deaktiviert das "package" Modul, damit es in der Eingabeaufforderung nicht mehr zu sehen ist
+[package]
+disabled = true
+
+[git_branch]
+symbol = '🌱 '
+truncation_length = 4
+truncation_symbol = ''
+ignore_branches = ['master', 'main']
+
+[azure]
+disabled = true
