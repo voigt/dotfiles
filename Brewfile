@@ -53,7 +53,7 @@ brew "detox"
 # brew "etcd"
 brew "exiftool"
 brew "ffmpeg"
-brew fish
+brew "fish"
 brew "fzf"
 brew "gettext"
 brew "gh"
@@ -74,7 +74,7 @@ brew "rclone"
 brew "reattach-to-user-namespace"
 # brew "rust" # todo: install via asdf
 brew "shellcheck"
-brew starship
+brew "starship"
 # brew "terraform" # installed via asdf
 brew "tmux"
 brew "tree"
