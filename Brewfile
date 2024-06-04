@@ -53,6 +53,7 @@ brew "detox"
 # brew "etcd"
 brew "exiftool"
 brew "ffmpeg"
+brew fish
 brew "fzf"
 brew "gettext"
 brew "gh"
