@@ -1,5 +1,4 @@
 Include ~/.orbstack/ssh/config
-Include /Users/c.voigt/.lima/default/ssh.config
 
 Host parallels
   IdentitiesOnly yes
