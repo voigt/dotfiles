@@ -15,6 +15,7 @@ ZSH_TMUX_AUTOSTART=true
 
 export PATH="${PATH}:${HOME}/.asdf/shims"
 export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="${PATH}:${HOME}/.bin"
 export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:${HOME}/.local/bin"
 export PATH="${PATH}:${HOME}/go/src/github.com/voigt/zls/zig-out/bin"
@@ -29,12 +30,14 @@ alias gov="cd ~/go/src/github.com/voigt"
 alias d='git diff' 
 alias vi='vim'
 alias typora="open -a typora"
+alias cat='bat --paging=never'
 
 case `uname` in
   Darwin)
     alias flushdns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed'
     alias ls='ls -GpF' # Mac OSX specific
     alias ll='ls -alGpF' # Mac OSX specific
+    # alias ll='erd --icons --long --human --level 1 -. --sort name' #experiment: using erdtree instead of ls
   ;;
   Linux)
     alias ll='ls -al'
@@ -124,7 +127,8 @@ autoload -U colors && colors
 setopt promptsubst
 
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[green]%}$)"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+NEWLINE=$'\n'
+PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)${NEWLINE}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
@@ -284,10 +288,8 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ===================
 # brew install jump
 # https://github.com/gsamokovarov/jump
-eval "$(jump shell)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(direnv hook zsh)"
 export PATH="$PATH:/Users/cvoigt/Downloads"
 
 # gcloud
@@ -296,6 +298,7 @@ source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.
 
 # 💩
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="/opt/homebrew/opt/gradle@7/bin:$PATH"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
