@@ -7,7 +7,7 @@ sync:
 	mkdir -p ~/.config/zellij
 
 
-	[ -f ~/.config/alacritty/alacritty.toml ] || ln -s $(PWD)/alacritty.toml ~/.config/alacritty/alacritty.toml
+	[ -f ~/.config/alacritty/alacritty.toml ] || ln -s $(PWD)/alacritty ~/.config/alacritty/alacritty.toml
 	# [ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
 	[ -f ~/.bashrc ] || ln -s $(PWD)/bashrc ~/.bashrc
 	[ -f ~/.zshrc ] || ln -s $(PWD)/zshrc ~/.zshrc
@@ -27,7 +27,7 @@ clean:
 	rm -f ~/.vimrc 
 	rm -f ~/.bashrc
 	rm -f ~/.zshrc
-	rm -f ~/.config/alacritty/alacritty.yml
+	rm -f ~/.config/alacritty/alacritty.toml
 	rm -f ~/.config/fish/config.fish
 	rm -f ~/.config/starship.toml
 	rm -f ~/.config/zellij/config.kdl
