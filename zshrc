@@ -1,7 +1,7 @@
 # =============
 #    INIT
 # =============
-
+eval "$(direnv hook zsh)"
 ZSH_TMUX_AUTOSTART=true
 
 # export HISTFILE=$(echo $(ls /Users/cvoigt/Library/Mobile\ Documents/com~apple~CloudDocs/zsh_history))

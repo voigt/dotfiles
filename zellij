@@ -1,2 +1,2 @@
 default_shell "fish"
-
+theme: "catppuccin-frappe"
