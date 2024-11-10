@@ -126,7 +126,6 @@ brew "kustomize"
 brew "k9s"
 brew "kind"
 brew "velero"
-brew "wasmtime"
 
 # Experimentation
 brew "bat"
