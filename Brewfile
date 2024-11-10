@@ -1,112 +1,121 @@
-tap "aybabtme/tap"
+# Taps
+tap "aybabtme/tap" # Not needed anymore?
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "wagoodman/dive"
 tap "hashicorp/tap"
 tap "bufbuild/buf"
 tap "nats-io/nats-tools"
 
+##### Casks (GUI Apps)
 # Configure where our applications go
 cask_args appdir: '/Applications'
-# get brew cask for apps
 # Additional Apps
 cask "1password-cli"
 cask "1password"
-cask "alt-tab"
-cask "amethyst"
-cask "alacritty"
+# cask "alt-tab"
+# cask "amethyst"
 cask "cleanshot"
-cask "docker"
-cask "drawio"
-cask "iterm2"
+cask "daisydisk"
+cask "iterm2" # remove?
 cask "logseq"
 cask "soundsource"
 cask "spotify"
 cask "typora"
-cask "vagrant"
+cask "vagrant" # remove?
 cask "visual-studio-code"
+brew "stats"
+#cask "cool-retro-term"
+
 # Browsers
-cask 'brave-browser'
+cask 'arc'
 cask 'firefox'
 cask 'google-chrome'
 # Messengers
 cask 'signal'
 cask 'slack'
 cask 'discord'
+
+##### Brews (CLI Apps)
 # Cloud Provider
 brew "awscli"
 brew "azure-cli"
 brew "doctl"
 cask "google-cloud-sdk"
-brew "angle-grinder"
-brew "bufbuild/buf/buf"
-brew "bash"
-brew "cfssl"
-brew "colordiff"
-brew "coreutils"
-brew "nats-io/nats-tools/nats"
-brew "curl"
-brew "direnv"
+brew "tflint"
+brew "terraform"
+
+# Programming Languages
+brew "go" # installed via asdf
 brew "dlv"
-# brew "go" # installed via asdf
-brew "detox"
-# brew "etcd"
+brew "bufbuild/buf/buf"
+brew "protobuf"
+brew "shellcheck"
+brew "checkov"
+brew "direnv"
+brew "entr"
+
+# Media Editing
 brew "exiftool"
 brew "ffmpeg"
-brew "fish"
-brew "fzf"
-brew "gettext"
-brew "gh"
-brew "git"
-brew "git-crypt"
-brew "gnu-sed"
-brew "gnupg"
-brew "graphviz"
-brew "dive"
-brew "htop"
-brew "hub"
-brew "hugo"
-brew "jq"
-brew "jump"
-brew "pkg-config"
-brew "protobuf"
-brew "rclone"
-brew "reattach-to-user-namespace"
-# brew "rust" # todo: install via asdf
-brew "shellcheck"
-brew "starship"
-# brew "terraform" # installed via asdf
+
+# Shell
+cask "nikitabobko/tap/aerospace"
+brew "zellij"
 brew "tmux"
-brew "tree"
-brew "vim"
-brew "wget"
-brew "watch"
-brew "z"
+brew "reattach-to-user-namespace" # tmux
+brew "fish"
+brew "starship"
+brew "fzf"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-# fun
-cask "cool-retro-term"
-cask "daisydisk"
+brew "bash"
 
-# Job
-brew "checkov"
-brew "diff-so-fancy"
-brew "diffutils"
-brew "findutils"
-brew "gawk"
+# Git
+brew "gh"
+brew "git"
+brew "git-crypt"
+brew "pre-commit"
+brew "diff-so-fancy" # still needed?
+brew "diffutils"     # still needed?
+
+# Tools
 brew "gnu-getopt"
 brew "gnu-indent"
 brew "gnu-tar"
 brew "gnutls"
 brew "grep"
 brew "gzip"
-brew "pre-commit"
-brew "tflint"
 brew "util-linux"
+brew "gettext"
+brew "gnu-sed"
+brew "gnupg"
+brew "graphviz"
+brew "htop"
+brew "jq"
+brew "pkg-config"
+brew "tree"
+brew "vim"
+brew "wget"
+brew "watch"
+brew "hugo"
+brew "cfssl"
+brew "coreutils"
+brew "curl"
+brew "nats-io/nats-tools/nats"
+brew "findutils"
+brew "gawk"
+#brew "rclone"
+
+# Job
 cask "tableplus"
 cask "forticlient-vpn"
 tap "warrensbox/tap"
+
+# Containers
+cask "orbstack"
+tap "wagoodman/dive"
+brew "dive"
 
 # Kubernetes
 brew "kubernetes-cli"
@@ -119,6 +128,14 @@ brew "kind"
 brew "velero"
 
 # Experimentation
-brew "zoxide"
 brew "bat"
-brew "entr"
+
+# Keep
+#
+# Slice and dice logs on the command line
+# https://github.com/rcoh/angle-grinder
+# brew "angle-grinder"
+#
+# colordiff — a tool to colorize diff output
+# https://github.com/daveewart/colordiff
+# brew "colordiff"
