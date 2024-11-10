@@ -5,6 +5,7 @@ sync:
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.config/zellij
+	mkdir -p ~/.config/aerospace
 
 
 	[ -f ~/.config/alacritty/alacritty.toml ] || ln -s $(PWD)/alacritty ~/.config/alacritty/alacritty.toml
@@ -14,6 +15,7 @@ sync:
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
+	[ -f ~/.config/aerospace/aerospace.toml ] || ln -s $(PWD)/aerospace ~/.config/aerospace/aerospace.toml
 
 	[ -f ~/.tmux.conf ] || ln -s $(PWD)/tmuxconf ~/.tmux.conf
 	[ -f ~/.git-prompt.sh ] || ln -s $(PWD)/git-prompt.sh ~/.git-prompt.sh
@@ -31,6 +33,7 @@ clean:
 	rm -f ~/.config/fish/config.fish
 	rm -f ~/.config/starship.toml
 	rm -f ~/.config/zellij/config.kdl
+	rm -f ~/.config/aerospace/aerospace.toml
 	rm -f ~/.tmux.conf
 	rm -f ~/.git-prompt.sh
 	rm -f ~/.gitconfig
