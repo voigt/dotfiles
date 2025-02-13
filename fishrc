@@ -5,10 +5,18 @@ fish_add_path ~/.cargo/bin
 fish_add_path /usr/local/bin
 fish_add_path ~/.zvm/self
 fish_add_path ~/.zvm/bin
+fish_add_path /opt/homebrew/opt/llvm/bin
 
 if status is-interactive
+    # fish history
+    atuin init fish --disable-up-arrow | source
+
     # Commands to run in interactive sessions can go here
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # evaluate wether this works better than the auto-start
+    # script below
+    # eval zellij attach --create main
     eval (zellij setup --generate-auto-start fish | string collect)
     source (starship init fish --print-full-init | psub)
     source (kubectl completion fish | psub)
@@ -17,3 +25,5 @@ end
 # kubectl completion fish | source
 
 set fish_greeting ""
+alias vogit="cd ~/go/src/github.com/voigt/"
+alias dotfiles="cd ~/go/src/github.com/voigt/dotfiles/"

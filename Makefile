@@ -13,6 +13,8 @@ sync:
 	[ -f ~/.bashrc ] || ln -s $(PWD)/bashrc ~/.bashrc
 	[ -f ~/.zshrc ] || ln -s $(PWD)/zshrc ~/.zshrc
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
+	[ -f  ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
+
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
 	[ -f ~/.config/aerospace/aerospace.toml ] || ln -s $(PWD)/aerospace ~/.config/aerospace/aerospace.toml
@@ -29,6 +31,8 @@ clean:
 	rm -f ~/.vimrc 
 	rm -f ~/.bashrc
 	rm -f ~/.zshrc
+	rm -f ~/.config/atuin/config.toml
+
 	rm -f ~/.config/alacritty/alacritty.toml
 	rm -f ~/.config/fish/config.fish
 	rm -f ~/.config/starship.toml
