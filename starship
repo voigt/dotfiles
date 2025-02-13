@@ -14,9 +14,16 @@ disabled = true
 
 [git_branch]
 symbol = '🌱 '
-truncation_length = 4
+# truncation_length = 4
 truncation_symbol = ''
-ignore_branches = ['master', 'main']
+# ignore_branches = ['master', 'main']
+
+[git_status]
+disabled = true
+
+[git_commit]
+only_detached = true
+tag_disabled = false
 
 [azure]
 disabled = true
