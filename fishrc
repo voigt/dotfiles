@@ -6,6 +6,7 @@ fish_add_path /usr/local/bin
 fish_add_path ~/.zvm/self
 fish_add_path ~/.zvm/bin
 fish_add_path /opt/homebrew/opt/llvm/bin
+fish_add_path ~/git/dotfiles/bin/tmp
 
 if status is-interactive
     # fish history

@@ -1,0 +1,144 @@
+#!/bin/bash
+
+# set -x
+
+# Config Flags
+OPEN_VSCODE=0
+USE_MKTEMP=0
+USE_DATE=0
+
+# TODO
+# [] - Add support for vscode debug file
+# [] - Add support for -x (force creation)?
+# [] - Languages
+#   [] - Go (TinyGo)
+#   [] - Spin(?)
+# [] - Better wrap mktemp?
+
+source directory.sh
+for plugin in tmp_plugin_*.sh; do
+    if [ -f "$plugin" ]; then
+        source "$plugin"
+    fi
+done
+
+# Function to display usage
+usage() {
+    echo "Usage: $0 <language> [directory] [flags]"
+    echo "Examples:"
+    echo "  $0 go"
+    echo "  $0 go --vscode"
+    echo "  $0 go ~/directoryname"
+    echo "  $0 go ~/directoryname --vscode"
+    echo "  $0 go ."
+    echo "  $0 go . --vscode"
+    echo "  $0 zig --vscode"
+    echo "  $0 rust ~/directoryname --vscode"
+    exit 1
+}
+
+
+# Function to parse arguments
+parse_arguments() {
+    # Check if at least one argument is provided
+    if [ $# -lt 1 ]; then
+        usage
+    fi
+
+    # Parse the first argument as the programming language
+    LANGUAGE=$1
+    shift
+
+    # Initialize variables
+    DIRECTORY=""
+    FLAGS=""
+
+    # Parse the remaining arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --*)
+                FLAGS="$FLAGS $1"
+                shift
+                ;;
+            *)
+                if [ -z "$DIRECTORY" ]; then
+                    DIRECTORY=$1
+                else
+                    FLAGS="$FLAGS $1"
+                fi
+                shift
+                ;;
+        esac
+    done
+}
+
+set_config() {
+    for flag in $FLAGS; do
+        if [ "$flag" == "--vscode" ]; then
+            OPEN_VSCODE=1
+        fi
+        if [ "$flag" == "--mktemp" ]; then
+            USE_MKTEMP=1
+        fi
+        if [ "$flag" == "--date" ]; then
+            USE_DATE=1
+        fi
+    done
+}
+
+# Prompts the user to confirm the creation of a directory.
+# Asks the user if they really want to create the directory specified by the DIRSTRING variable.
+# If the user responds with 'Y' or 'y', the function returns 0 indicating confirmation.
+# If the user responds with 'N' or 'n', the function prints a message and returns 1 indicating abortion.
+# If the user provides any other input, the function prompts again until a valid response is given.
+confirm_creation() {
+    read -r -p "Do you really want to create the directory ${DIRSTRING}? (Y/N): " CONFIRM
+    case $CONFIRM in
+        [Yy]* ) return 0;;
+        [Nn]* ) echo "Directory creation aborted."; return 1;;
+        * ) echo "Please answer Y or N."; confirm_creation;;
+    esac
+}
+
+# Function to handle the logic based on parsed arguments
+handle() {
+    _PWD=$(pwd)
+    TMP_DIR=""
+    VSCODE_PROFILE=""
+    FILE_OPEN=""
+
+    TMP_DIR=$(create_dir "$LANGUAGE" "$DIRECTORY")
+    tmpstate=$?
+
+    if [ "$LANGUAGE" == "go" ]; then
+        VSCODE_PROFILE="Golang"
+        FILE_OPEN=$(handle_go "$TMP_DIR" "$tmpstate")
+    fi
+
+    if [ "$LANGUAGE" == "zig" ]; then
+        VSCODE_PROFILE="Zig"
+        FILE_OPEN=$(handle_zig "$TMP_DIR" "$tmpstate")
+    fi
+
+    if [ "$LANGUAGE" == "rust" ]; then
+        VSCODE_PROFILE="Rust"
+        FILE_OPEN=$(handle_rust "$TMP_DIR" "$tmpstate")
+    fi
+
+    if [ $OPEN_VSCODE -eq 1 ]; then
+        code "$TMP_DIR" \
+        --new-window \
+        --goto "$FILE_OPEN" \
+        --profile $VSCODE_PROFILE
+    fi
+}
+
+# Main function
+main() {
+    parse_arguments "$@"
+    set_config
+    handle
+}
+
+# Call the main function with all script arguments
+main "$@"
