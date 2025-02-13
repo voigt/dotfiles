@@ -53,6 +53,7 @@ brew "shellcheck"
 brew "checkov"
 brew "direnv"
 brew "entr"
+brew "zig"
 
 # Media Editing
 brew "exiftool"
@@ -70,6 +71,7 @@ brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "bash"
+brew "atuin"
 
 # Git
 brew "gh"
