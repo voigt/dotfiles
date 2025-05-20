@@ -3,17 +3,16 @@ all: sync
 sync:
 	mkdir -p ~/.ssh
 	mkdir -p ~/.config/fish
-	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.config/zellij
 	mkdir -p ~/.config/aerospace
 
 
-	[ -f ~/.config/alacritty/alacritty.toml ] || ln -s $(PWD)/alacritty ~/.config/alacritty/alacritty.toml
 	# [ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
 	[ -f ~/.bashrc ] || ln -s $(PWD)/bashrc ~/.bashrc
 	[ -f ~/.zshrc ] || ln -s $(PWD)/zshrc ~/.zshrc
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
 	[ -f  ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
+	[ -f  ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
 
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
@@ -32,8 +31,8 @@ clean:
 	rm -f ~/.bashrc
 	rm -f ~/.zshrc
 	rm -f ~/.config/atuin/config.toml
+	rm -f ~/.config/ghostty/config
 
-	rm -f ~/.config/alacritty/alacritty.toml
 	rm -f ~/.config/fish/config.fish
 	rm -f ~/.config/starship.toml
 	rm -f ~/.config/zellij/config.kdl
