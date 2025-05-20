@@ -1,5 +1,9 @@
 set -gx EDITOR lvim
 
+fish_add_path ~/go/src/github.com/openbao/devbao/bin
+fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/hack
+fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/bin
+fish_add_path ~/go/bin/
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path /usr/local/bin
@@ -28,3 +32,7 @@ end
 set fish_greeting ""
 alias vogit="cd ~/go/src/github.com/voigt/"
 alias dotfiles="cd ~/go/src/github.com/voigt/dotfiles/"
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
