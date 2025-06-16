@@ -35,6 +35,10 @@ Host github.com
   HostName github.com
   IdentityFile ~/.ssh/github_rsa.pub
 
+Host tangled.sh
+  HostName tangled.sh
+  IdentityFile ~/.ssh/tangled.pub
+
 # DevPod Start voigt-github-com.devpod
 Host voigt-github-com.devpod
   ForwardAgent yes
