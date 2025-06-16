@@ -4,6 +4,20 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILf3iITEYLhuQXeyMmymKbJkhypfUKPJRtHpy5zIGSD/
 [includeIf "gitdir:~/go/src/github.com/vwdfive/"]
 	path = ~/go/src/github.com/vwdfive/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/Ki-Reply-GmbH/openbao/"]
+	path = ~/go/src/github.com/openbao/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/Ki-Reply-GmbH/go-kms-wrapping/"]
+	path = ~/go/src/github.com/openbao/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/Ki-Reply-GmbH/openbao-helm/"]
+	path = ~/go/src/github.com/openbao/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/voigt/dev-wg/"]
+	path = ~/go/src/github.com/openbao/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/openbao/openbao/"]
+    path = ~/go/src/github.com/openbao/.gitconfig
+[includeIf "gitdir:~/go/src/github.com/voigt/openbao/"]
+    path = ~/go/src/github.com/openbao/.gitconfig
+[includeIf "gitdir:~/go/src/github.tools.sap/vault-namespace-apeirot1"]
+    path = ~/go/src/github.tools.sap/.gitconfig
 [color]
 	ui = auto
 [color "branch"]
