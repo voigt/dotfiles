@@ -1,2 +1,14 @@
 default_shell "fish"
 theme "catppuccin-frappe"
+
+keybinds {
+    // keybinds are divided into modes
+    normal {
+        // bind instructions can include one or more keys (both keys will be bound separately)
+        // bind keys can include one or more actions (all actions will be performed with no sequential guarantees)
+
+        // https://github.com/zellij-org/zellij/issues/4151#issuecomment-2974846921
+        unbind "Alt f"
+        bind "Alt F" {  ToggleFloatingPanes; }
+    }
+}
