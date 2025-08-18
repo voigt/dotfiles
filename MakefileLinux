@@ -1,0 +1,31 @@
+all: sync
+
+sync:
+	mkdir -p ~/.ssh
+	mkdir -p ~/.config/fish
+	mkdir -p ~/.config/zellij
+	mkdir -p ~/.config/aerospace
+	mkdir -p ~/.config/ghostty
+
+
+	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
+	[ -f  ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
+
+	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
+	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
+
+	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
+	[ -f ~/.ssh/config ] || ln -s $(PWD)/sshconfig ~/.ssh/config
+
+
+clean:
+	rm -f ~/.config/ghostty/config
+
+	rm -f ~/.config/fish/config.fish
+	rm -f ~/.config/starship.toml
+	rm -f ~/.config/zellij/config.kdl
+	rm -f ~/.config/aerospace/aerospace.toml
+	rm -f ~/.gitconfig
+	rm -f ~/.ssh/config
+
+.PHONY: all clean sync build run kill
