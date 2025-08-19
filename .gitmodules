@@ -1,0 +1,3 @@
+[submodule "themes/catppuccin/helix"]
+	path = themes/catppuccin/helix
+	url = git@github.com:catppuccin/helix.git
