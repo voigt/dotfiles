@@ -18,6 +18,7 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="${PATH}:${HOME}/.bin"
 export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/opt/homebrew/bin"
 export PATH="${PATH}:${HOME}/go/src/github.com/voigt/zls/zig-out/bin"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
@@ -301,4 +302,3 @@ export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-
