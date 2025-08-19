@@ -39,6 +39,10 @@ Host tangled.sh
   HostName tangled.sh
   IdentityFile ~/.ssh/tangled.pub
 
+Host codeberg.org
+  HostName codeberg.org
+  IdentityFile ~/.ssh/codeberg.pub
+
 # DevPod Start voigt-github-com.devpod
 Host voigt-github-com.devpod
   ForwardAgent yes
