@@ -16,7 +16,7 @@
     path = ~/go/src/github.com/openbao/.gitconfig
 [includeIf "gitdir:~/go/src/github.com/voigt/openbao/"]
     path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.tools.sap/vault-namespace-apeirot1"]
+[includeIf "gitdir:~/go/src/github.tools.sap/"]
     path = ~/go/src/github.tools.sap/.gitconfig
 [color]
 	ui = auto
