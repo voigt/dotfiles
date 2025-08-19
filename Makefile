@@ -5,23 +5,19 @@ sync:
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/zellij
 	mkdir -p ~/.config/aerospace
+	mkdir -p ~/.config/ghostty
 
 
-	# [ -f ~/.vimrc ] || ln -s $(PWD)/vimrc ~/.vimrc
-	[ -f ~/.bashrc ] || ln -s $(PWD)/bashrc ~/.bashrc
-	[ -f ~/.zshrc ] || ln -s $(PWD)/zshrc ~/.zshrc
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
 	[ -f  ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
 	[ -f  ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
 	[ -f  ~/.config/helix/config.toml ] || ln -s $(PWD)/helix ~/.config/helix/config.toml
-#	[ -f  ~/.config/helix/themes ] || ln -s $(PWD)/themes/catppuccin/helix/themes ~/.config/helix/themes
 
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 #	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
 	[ -f ~/.config/zellij/config.kdl ] || cp $(PWD)/zellij ~/.config/zellij/config.kdl
 	[ -f ~/.config/aerospace/aerospace.toml ] || ln -s $(PWD)/aerospace ~/.config/aerospace/aerospace.toml
 
-	[ -f ~/.tmux.conf ] || ln -s $(PWD)/tmuxconf ~/.tmux.conf
 	[ -f ~/.git-prompt.sh ] || ln -s $(PWD)/git-prompt.sh ~/.git-prompt.sh
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
 	[ -f ~/.ssh/config ] || ln -s $(PWD)/sshconfig ~/.ssh/config
@@ -30,13 +26,11 @@ sync:
 	launchctl load ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
 
 	[ -f ~/.ocmconfig ] || ln -s $(PWD)/ocmconfig ~/.ocmconfig
+
 	# don't show last login message
 	touch ~/.hushlogin
 
 clean:
-	rm -f ~/.vimrc
-	rm -f ~/.bashrc
-	rm -f ~/.zshrc
 	rm -f ~/.config/atuin/config.toml
 	rm -f ~/.config/ghostty/config
 	rm -f ~/.config/helix/config.toml
@@ -46,7 +40,6 @@ clean:
 	rm -f ~/.config/starship.toml
 	rm -f ~/.config/zellij/config.kdl
 	rm -f ~/.config/aerospace/aerospace.toml
-	rm -f ~/.tmux.conf
 	rm -f ~/.git-prompt.sh
 	rm -f ~/.gitconfig
 	rm -f ~/.ssh/config
