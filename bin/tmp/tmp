@@ -15,10 +15,12 @@ USE_DATE=0
 #   [] - Spin(?)
 # [] - Better wrap mktemp?
 
-source directory.sh
-for plugin in tmp_plugin_*.sh; do
+dn=$(dirname "$0")
+source "$(dirname "$0")/directory.sh"
+for plugin in $("${dn}"/tmp_plugin_*.sh); do
     if [ -f "$plugin" ]; then
-        source "$plugin"
+        echo "$(dirname "$0")/$plugin"
+        source "${dn/$plugin}"
     fi
 done
 
