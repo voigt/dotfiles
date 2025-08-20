@@ -38,8 +38,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # open vim and install all plugins
 :PlugInstall
 
-# install tmux plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # disable font smoothing
 defaults -currentHost write -g AppleFontSmoothing -int 0
