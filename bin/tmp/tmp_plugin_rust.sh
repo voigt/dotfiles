@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function handle_rust() {
-    echo "Handling Zig language" >&2
+    echo "Handling Rust language" >&2
 
     TARGET_DIR=$1
     DIRECTORY_CREATED=$2
