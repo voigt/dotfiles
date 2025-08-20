@@ -4,7 +4,6 @@ sync:
 	mkdir -p ~/.ssh
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/zellij
-	mkdir -p ~/.config/aerospace
 	mkdir -p ~/.config/ghostty
 
 
@@ -24,7 +23,6 @@ clean:
 	rm -f ~/.config/fish/config.fish
 	rm -f ~/.config/starship.toml
 	rm -f ~/.config/zellij/config.kdl
-	rm -f ~/.config/aerospace/aerospace.toml
 	rm -f ~/.gitconfig
 	rm -f ~/.ssh/config
 
