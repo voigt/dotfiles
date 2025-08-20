@@ -192,7 +192,6 @@ enter_accept = false
 #   "podman",
 #   "port",
 #   "systemctl",
-#   "tmux",
 #   "yarn",
 # ]
 

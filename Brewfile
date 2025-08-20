@@ -62,8 +62,6 @@ brew "ffmpeg"
 # Shell
 cask "nikitabobko/tap/aerospace"
 brew "zellij"
-brew "tmux"
-brew "reattach-to-user-namespace" # tmux
 brew "fish"
 brew "starship"
 brew "fzf"

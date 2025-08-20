@@ -2,7 +2,6 @@
 #    INIT
 # =============
 eval "$(direnv hook zsh)"
-ZSH_TMUX_AUTOSTART=true
 
 # export HISTFILE=$(echo $(ls /Users/cvoigt/Library/Mobile\ Documents/com~apple~CloudDocs/zsh_history))
 
@@ -64,12 +63,6 @@ alias hc='gh pr view --web'
 # open github repo from git repo
 alias hb='gh repo view --web'
 alias b='git branch'
-
-# open seperate tmux buffer and search for a file, open with vim
-function fe() (
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-)
 
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
@@ -258,23 +251,6 @@ fi
 
 # automatically remove duplicates from these arrays
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
-
-# only exit if we're not on the last pane
-exit() {
-  if [[ -z $TMUX ]]; then
-    builtin exit
-    return
-  fi
-
-  panes=$(tmux list-panes | wc -l)
-  wins=$(tmux list-windows | wc -l) 
-  count=$(($panes + $wins - 1))
-  if [ $count -eq 1 ]; then
-    tmux detach
-  else
-    builtin exit
-  fi
-}
 
 # ===================
 #    PLUGINS
