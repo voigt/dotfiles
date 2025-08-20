@@ -1,0 +1,11 @@
+[gpg]
+	format = ssh
+[gpg "ssh"]
+  program = /opt/1Password/op-ssh-sign
+[commit]
+	gpgsign = true
+
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	editor = vim
+	quotepath = false
