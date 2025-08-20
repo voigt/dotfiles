@@ -1,0 +1,12 @@
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+	
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	editor = vim
+	quotepath = false
+	excludesfile = /Users/cvoigt/.gitignore
