@@ -12,18 +12,14 @@ cask_args appdir: '/Applications'
 # Additional Apps
 cask "1password-cli"
 cask "1password"
-# cask "alt-tab"
-# cask "amethyst"
 cask "cleanshot"
 cask "daisydisk"
-cask "iterm2" # remove?
 cask "logseq"
 cask "soundsource"
 cask "spotify"
 cask "typora"
 cask "vagrant" # remove?
 cask "visual-studio-code"
-brew "stats"
 #cask "cool-retro-term"
 
 # Browsers
@@ -109,7 +105,6 @@ brew "gawk"
 
 # Job
 cask "tableplus"
-cask "forticlient-vpn"
 tap "warrensbox/tap"
 
 # Containers
@@ -120,7 +115,6 @@ brew "dive"
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
-brew "Azure/kubelogin/kubelogin"
 brew "helm"
 brew "kustomize"
 brew "k9s"
