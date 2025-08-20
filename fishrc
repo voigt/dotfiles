@@ -6,7 +6,14 @@ alias dotfiles="cd ~/go/src/github.com/voigt/dotfiles/"
 
 switch (uname)
     case Linux
-            echo "Hi Tux!"
+			alias hx="helix"
+            if status is-interactive
+                # evaluate whether this works better than the auto-start
+                # script below
+                # eval zellij attach --create main
+                eval (zellij setup --generate-auto-start fish | string collect)
+                source (starship init fish --print-full-init | psub)
+            end
     case Darwin
             fish_add_path ~/go/src/github.com/openbao/devbao/bin
             fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/hack
