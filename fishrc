@@ -1,38 +1,47 @@
-set -gx EDITOR lvim
-
-fish_add_path ~/go/src/github.com/openbao/devbao/bin
-fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/hack
-fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/bin
-fish_add_path ~/go/bin/
-fish_add_path ~/.local/bin
-fish_add_path ~/.cargo/bin
-fish_add_path /usr/local/bin
-fish_add_path ~/.zvm/self
-fish_add_path ~/.zvm/bin
-fish_add_path /opt/homebrew/opt/llvm/bin
-fish_add_path ~/git/dotfiles/bin/tmp
-
-if status is-interactive
-    # fish history
-    atuin init fish --disable-up-arrow | source
-
-    # Commands to run in interactive sessions can go here
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-
-    # evaluate wether this works better than the auto-start
-    # script below
-    # eval zellij attach --create main
-    eval (zellij setup --generate-auto-start fish | string collect)
-    source (starship init fish --print-full-init | psub)
-    source (kubectl completion fish | psub)
-end
-
-# kubectl completion fish | source
+set -gx EDITOR helix
 
 set fish_greeting ""
 alias vogit="cd ~/go/src/github.com/voigt/"
 alias dotfiles="cd ~/go/src/github.com/voigt/dotfiles/"
 
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+switch (uname)
+    case Linux
+            echo "Hi Tux!"
+    case Darwin
+            echo "Hi Hexley!"
+            fish_add_path ~/go/src/github.com/openbao/devbao/bin
+            fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/hack
+            fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/bin
+            fish_add_path ~/go/bin/
+            fish_add_path ~/.local/bin
+            fish_add_path ~/.cargo/bin
+            fish_add_path /usr/local/bin
+            fish_add_path ~/.zvm/self
+            fish_add_path ~/.zvm/bin
+            fish_add_path /opt/homebrew/opt/llvm/bin
+            fish_add_path ~/git/dotfiles/bin/tmp
+
+            if status is-interactive
+                # fish history
+                atuin init fish --disable-up-arrow | source
+
+                # Commands to run in interactive sessions can go here
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+
+                # evaluate wether this works better than the auto-start
+                # script below
+                # eval zellij attach --create main
+                eval (zellij setup --generate-auto-start fish | string collect)
+                source (starship init fish --print-full-init | psub)
+                source (kubectl completion fish | psub)
+            end
+
+            
+            # Added by OrbStack: command-line tools and integration
+            # This won't be added again if you remove it.
+            source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+    case '*'
+            echo "OS not detected. Please check fishrc"
+end
+
