@@ -28,7 +28,7 @@ switch (uname)
                 # Commands to run in interactive sessions can go here
                 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-                # evaluate wether this works better than the auto-start
+                # evaluate whether this works better than the auto-start
                 # script below
                 # eval zellij attach --create main
                 eval (zellij setup --generate-auto-start fish | string collect)
