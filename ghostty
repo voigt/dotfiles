@@ -2,3 +2,4 @@ theme = "dark:catppuccin-frappe,light:catppuccin-latte"
 keybind = cmd+^=toggle_quick_terminal
 keybind = ctrl+^=toggle_quick_terminal
 window-decoration = none
+confirm-close-surface = false

@@ -8,7 +8,6 @@ switch (uname)
     case Linux
             echo "Hi Tux!"
     case Darwin
-            echo "Hi Hexley!"
             fish_add_path ~/go/src/github.com/openbao/devbao/bin
             fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/hack
             fish_add_path ~/go/src/github.com/Ki-Reply-GmbH/openbao/bin
