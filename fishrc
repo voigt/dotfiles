@@ -1,4 +1,4 @@
-set -gx EDITOR helix
+set -gx EDITOR hx
 
 set fish_greeting ""
 alias vogit="cd ~/go/src/github.com/voigt/"
