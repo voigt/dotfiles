@@ -7,6 +7,6 @@
 	
 [core]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	editor = vim
+	editor = hx
 	quotepath = false
 	excludesfile = /Users/cvoigt/.gitignore

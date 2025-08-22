@@ -1,6 +1,8 @@
 default_shell "fish"
 theme "catppuccin-frappe"
 
+support_kitty_keyboard_protocol true
+
 keybinds {
     // keybinds are divided into modes
     normal {
