@@ -41,8 +41,8 @@ if [[ $# -eq 0 ]]; then
 fi
 
 GHOSTTY_CONFIG_PATH="${HOME}/go/src/github.com/voigt/dotfiles/ghostty"
-GHOSTTY_THEME_LIGHT="catppuccin-latte"
-GHOSTTY_THEME_DARK="catppuccin-frappe"
+GHOSTTY_THEME_LIGHT="Catppuccin Latte"
+GHOSTTY_THEME_DARK="Catppuccin Frappe"
 
 switch_ghostty_theme() {
   local theme=$1
