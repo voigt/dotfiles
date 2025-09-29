@@ -5,6 +5,8 @@ line-number = "relative"
 cursorline = true
 color-modes = true
 default-yank-register = "+"
+# rulers = [80]
+bufferline = "always"
 
 # from https://herecomesthemoon.net/2025/06/i-like-helix/
 auto-save = true
@@ -23,3 +25,4 @@ select = "underline"
 
 [editor.indent-guides]
 render = true
+
