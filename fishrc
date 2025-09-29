@@ -1,8 +1,12 @@
 set -gx EDITOR hx
-
 set fish_greeting ""
+
 alias vogit="cd ~/go/src/github.com/voigt/"
 alias dotfiles="cd ~/go/src/github.com/voigt/dotfiles/"
+alias cd="z"
+alias reloadhx="pkill -USR1 hx"
+
+source $HOME/.config/fish/functions/zoxide.fish
 
 switch (uname)
     case Linux
@@ -51,3 +55,46 @@ switch (uname)
             echo "OS not detected. Please check fishrc"
 end
 
+# Helpers for note taking
+set NOTES "$HOME/notebook/07_Inbox"
+alias onote="hx $NOTES"
+
+function templatenow
+    set template $NOTES/../03_Resources/Templates/Blog\ Now.md
+    echo "$(
+    cat $template | sed 's/<% tp.file.creation_date("YYYY-MM-DD") %>/'$(date '+%Y-%m-%d')'/' | sed 's/<% tp.file.last_modified_date("YYYY-MM-DD") %>/'$(date '+%Y-%m-%d')'/'
+    )"
+end
+
+function note
+    set directory $NOTES
+    set name $(date '+%Y-%m-%d_%H-%M-%S')
+    set suffix ".md"
+
+    if test $argv[1]
+        # if test $argv[1] = now
+        #     echo $argv[1]
+
+        #     set directory $NOTES/../09_Blog/now/
+        #     set filename "$name$suffix"
+
+        #     # this does not work as expected
+        #     templatenow | hx # "$directory/$filename"
+        #     echo "$NOTES/$filename"
+
+        #     return 0
+        # end
+
+        set name $argv[1]
+        if test $argv[1] = open
+            echo $argv[1]
+            set name ""
+            set suffix ""
+        end
+    end
+
+    set filename "$name$suffix"
+
+    hx "$NOTES/$filename"
+    echo "$NOTES/$filename"
+end
