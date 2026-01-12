@@ -23,6 +23,7 @@ sync:
 	[ -f ~/.gitconfig-macos ] || ln -s $(PWD)/gitconfig-macos ~/.gitconfig-macos
 	[ -f ~/.gitconfig-stackit ] || ln -s $(PWD)/gitconfig-stackit ~/.gitconfig-stackit
 	[ -f ~/.ssh/config ] || ln -s $(PWD)/sshconfig ~/.ssh/config
+	[ -f ~/.ssh/config.stackit ] || ln -s $(PWD)/sshconfig-stackit ~/.ssh/config.stackit
 
 	[ -f ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist ] || ln -s $(PWD)/local.cvoigt.dark-notify.plist ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
 	launchctl load ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist

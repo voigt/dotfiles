@@ -1,0 +1,36 @@
+# SKE external jumphost
+Host jump-ske
+  HostName 193.148.171.216
+  Port 1337
+  User voigtchadm
+  DynamicForward 1337
+  Compression yes
+  IdentityFile ~/.ssh/stackit_github.pub
+
+Host ssh.dev.azure.com
+  HostName ssh.dev.azure.com
+  IdentityFile ~/.ssh/stackit_azure_devops.pub
+
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/stackit_github.pub
+
+Host ssh.kubara.git.onstackit.cloud
+  HostName ssh.kubara.git.onstackit.cloud
+  IdentityFile ~/.ssh/kubara.pub
+  
+# sx-ddaq01-qa
+Host jump-ddaq01-qa
+  HostName 192.214.187.91
+  User voigtch
+  DynamicForward 1338
+  Compression yes
+  IdentityFile ~/.ssh/stackit-x.pub
+
+# sx-stoi-prod
+Host jump-stoi-prod
+  HostName 193.148.163.48
+  User voigtch
+  DynamicForward 1339
+  Compression yes
+  IdentityFile ~/.ssh/stackit-x.pub
