@@ -1,10 +1,13 @@
 # Taps
 tap "aybabtme/tap" # Not needed anymore?
-tap "homebrew/bundle"
-tap "homebrew/services"
+#tap "homebrew/bundle"
+#tap "homebrew/services"
 tap "hashicorp/tap"
 tap "bufbuild/buf"
 tap "nats-io/nats-tools"
+tap "stackitcloud/tap"
+
+cask "mumble"
 
 ##### Casks (GUI Apps)
 # Configure where our applications go
@@ -14,22 +17,26 @@ cask "1password-cli"
 cask "1password"
 cask "cleanshot"
 cask "daisydisk"
-cask "logseq"
-cask "soundsource"
-cask "spotify"
-cask "typora"
-cask "vagrant" # remove?
+cask "obsidian"
+#cask "logseq"
+#cask "soundsource"
+#cask "spotify"
+#cask "typora"
+#cask "vagrant" # remove?
 cask "visual-studio-code"
+cask "zed"
 #cask "cool-retro-term"
+cask "proxifier"
 
 # Browsers
-cask 'arc'
+#cask 'arc'
 cask 'firefox'
+cask "arc"
 cask 'google-chrome'
 # Messengers
-cask 'signal'
-cask 'slack'
-cask 'discord'
+#cask 'signal'
+#cask 'slack'
+#cask 'discord'
 
 ##### Brews (CLI Apps)
 # Cloud Provider
@@ -37,6 +44,7 @@ brew "awscli"
 brew "azure-cli"
 brew "doctl"
 cask "google-cloud-sdk"
+cask "stackit"
 brew "tflint"
 brew "terraform"
 
@@ -56,19 +64,20 @@ brew "exiftool"
 brew "ffmpeg"
 
 # Shell
+cask "ghostty"
 cask "nikitabobko/tap/aerospace"
 brew "zellij"
 brew "fish"
 brew "starship"
 brew "fzf"
-brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
+#brew "zsh"
+#brew "zsh-autosuggestions"
+#brew "zsh-syntax-highlighting"
 brew "bash"
 brew "atuin"
 
 # Git
-brew "gh"
+#brew "gh"
 brew "git"
 brew "git-crypt"
 brew "pre-commit"
@@ -88,13 +97,15 @@ brew "gnu-sed"
 brew "gnupg"
 brew "graphviz"
 brew "htop"
+brew "btop"
 brew "jq"
 brew "pkg-config"
 brew "tree"
 brew "vim"
+brew "helix"
 brew "wget"
 brew "watch"
-brew "hugo"
+#brew "hugo"
 brew "cfssl"
 brew "coreutils"
 brew "curl"
@@ -124,6 +135,7 @@ brew "wasmtime"
 
 # Experimentation
 brew "bat"
+brew "zoxide"
 
 # Keep
 #
