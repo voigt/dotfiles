@@ -4,6 +4,7 @@ sync:
 	mkdir -p ~/.ssh
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/jj
+	mkdir -p ~/.config/atuin
 	mkdir -p ~/.config/zellij
 	mkdir -p ~/.config/aerospace
 	mkdir -p ~/.config/ghostty
@@ -27,10 +28,11 @@ sync:
 	[ -f ~/.ssh/config ] || ln -s $(PWD)/sshconfig ~/.ssh/config
 	[ -f ~/.ssh/config.stackit ] || ln -s $(PWD)/sshconfig-stackit ~/.ssh/config.stackit
 
+	mkdir -p ~/Library/LaunchAgents/
 	[ -f ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist ] || ln -s $(PWD)/local.cvoigt.dark-notify.plist ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
 	launchctl load ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
 
-	[ -f ~/.ocmconfig ] || ln -s $(PWD)/ocmconfig ~/.ocmconfig
+	#[ -f ~/.ocmconfig ] || ln -s $(PWD)/ocmconfig ~/.ocmconfig
 
 	# don't show last login message
 	touch ~/.hushlogin
@@ -55,6 +57,6 @@ clean:
 
 	rm -f ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
 
-	rm -f ~/.ocmconfig
+	#rm -f ~/.ocmconfig
 
 .PHONY: all clean sync build run kill
