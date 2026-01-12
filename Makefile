@@ -47,6 +47,7 @@ clean:
 	rm -f ~/.gitconfig
 	rm -f ~/.gitconfig-macos
 	rm -f ~/.ssh/config
+	rm -f ~/.ssh/config.stackit
 	rm -f ~/.zsh_history
 
 	rm -f ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
