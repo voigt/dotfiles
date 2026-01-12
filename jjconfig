@@ -1,0 +1,14 @@
+[user]
+name = "Christoph Voigt"
+email = "voigt.christoph@gmail.com"
+
+[ui]
+editor = "hx"
+
+# TODO: add commit signing
+
+# TODO: add conditional emails based on directory
+# [[--scope]]
+# --when.repositories = ["**/gitub.com/stackitcloud/**/.git","**/dev.azure.com/schwarzit/**/.git", "glob:**/onstackit.cloud/**/.git"]
+# [--scope.user]
+# email = "christoph.voigt@stackit.cloud"

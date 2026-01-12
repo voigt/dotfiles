@@ -3,15 +3,16 @@ all: sync
 sync:
 	mkdir -p ~/.ssh
 	mkdir -p ~/.config/fish
+	mkdir -p ~/.config/jj
 	mkdir -p ~/.config/zellij
 	mkdir -p ~/.config/aerospace
 	mkdir -p ~/.config/ghostty
 
 
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
-	[ -f  ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
-	[ -f  ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
-	[ -f  ~/.config/helix/config.toml ] || ln -s $(PWD)/helix ~/.config/helix/config.toml
+	[ -f ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
+	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
+	[ -f ~/.config/helix/config.toml ] || ln -s $(PWD)/helix ~/.config/helix/config.toml
 
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 #	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
@@ -20,6 +21,7 @@ sync:
 
 	[ -f ~/.git-prompt.sh ] || ln -s $(PWD)/git-prompt.sh ~/.git-prompt.sh
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
+	[ -f ~/.config/jj/config.toml ] || ln -s $(PWD)/jjconfig  ~/.config/jj/config.toml
 	[ -f ~/.gitconfig-macos ] || ln -s $(PWD)/gitconfig-macos ~/.gitconfig-macos
 	[ -f ~/.gitconfig-stackit ] || ln -s $(PWD)/gitconfig-stackit ~/.gitconfig-stackit
 	[ -f ~/.ssh/config ] || ln -s $(PWD)/sshconfig ~/.ssh/config
@@ -45,6 +47,7 @@ clean:
 	rm -f ~/.config/aerospace/aerospace.toml
 	rm -f ~/.git-prompt.sh
 	rm -f ~/.gitconfig
+	rm -f ~/.config/jj/config.toml
 	rm -f ~/.gitconfig-macos
 	rm -f ~/.ssh/config
 	rm -f ~/.ssh/config.stackit
