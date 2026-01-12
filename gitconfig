@@ -1,22 +1,5 @@
-[user]
-	name = Christoph Voigt
-	email = voigt.christoph@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILf3iITEYLhuQXeyMmymKbJkhypfUKPJRtHpy5zIGSD/
-
-[includeIf "gitdir:~/go/src/github.com/Ki-Reply-GmbH/openbao/"]
-	path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.com/Ki-Reply-GmbH/go-kms-wrapping/"]
-	path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.com/Ki-Reply-GmbH/openbao-helm/"]
-	path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.com/voigt/dev-wg/"]
-	path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.com/openbao/openbao/"]
-    path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.com/voigt/openbao/"]
-    path = ~/go/src/github.com/openbao/.gitconfig
-[includeIf "gitdir:~/go/src/github.tools.sap/"]
-    path = ~/go/src/github.tools.sap/.gitconfig
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 
 [color]
 	ui = auto
@@ -56,7 +39,19 @@
 	clean = git-lfs clean -- %f
 
 # Include OS specific configuration
-[includeIf "gitdir/i:/Users/"]
+[includeIf "gitdir:/Users/"]
   path = ~/.gitconfig-macos
-[includeIf "gitdir/i:/home/"]
+[includeIf "gitdir:/home/"]
   path = ~/.gitconfig-linux
+
+# Include Employer specific configuration
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@ssh.dev.azure.com:v3"]
+	insteadOf = https://dev.azure.com
+[includeIf "gitdir:**/gitub.com/stackitcloud/**/.git"]
+  path = ~/.gitconfig-stackit
+[includeIf "gitdir:**/dev.azure.com/schwarzit/**/.git"]
+  path = ~/.gitconfig-stackit
+[includeIf "gitdir:**/onstackit.cloud/**/.git"]
+  path = ~/.gitconfig-stackit

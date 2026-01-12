@@ -1,0 +1,20 @@
+[user]
+  name       = Christoph Voigt
+  email      = christoph.voigt@stackit.cloud
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBdM/M6bExT5OrGGEDMoaHlm4GZJh0JKsuapxGtZKa+v
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@ssh.dev.azure.com:v3"]
+	insteadOf = https://dev.azure.com
+[url "git@ssh.kubara.git.onstackit.cloud:"]
+	insteadOf = https://kubara.git.onstackit.cloud

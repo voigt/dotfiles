@@ -21,6 +21,7 @@ sync:
 	[ -f ~/.git-prompt.sh ] || ln -s $(PWD)/git-prompt.sh ~/.git-prompt.sh
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/gitconfig ~/.gitconfig
 	[ -f ~/.gitconfig-macos ] || ln -s $(PWD)/gitconfig-macos ~/.gitconfig-macos
+	[ -f ~/.gitconfig-stackit ] || ln -s $(PWD)/gitconfig-stackit ~/.gitconfig-stackit
 	[ -f ~/.ssh/config ] || ln -s $(PWD)/sshconfig ~/.ssh/config
 
 	[ -f ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist ] || ln -s $(PWD)/local.cvoigt.dark-notify.plist ~/Library/LaunchAgents/local.cvoigt.dark-notify.plist
