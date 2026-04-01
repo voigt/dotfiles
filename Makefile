@@ -8,12 +8,14 @@ sync:
 	mkdir -p ~/.config/zellij
 	mkdir -p ~/.config/aerospace
 	mkdir -p ~/.config/ghostty
+	mkdir -p ~/.config/rift
 
 
 	[ -f ~/.config/fish/config.fish ] || ln -s $(PWD)/fishrc ~/.config/fish/config.fish
-	[ -f ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
-	[ -f ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
-	[ -f ~/.config/helix/config.toml ] || ln -s $(PWD)/helix ~/.config/helix/config.toml
+	[ -f  ~/.config/atuin/config.toml ] || ln -s $(PWD)/atuin ~/.config/atuin/config.toml
+	[ -f  ~/.config/ghostty/config ] || ln -s $(PWD)/ghostty ~/.config/ghostty/config
+	[ -f  ~/.config/helix/config.toml ] || ln -s $(PWD)/helix ~/.config/helix/config.toml
+	[ -f  ~/.config/rift/config.toml ] || ln -s $(PWD)/rift ~/.config/rift/config.toml
 
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/starship ~/.config/starship.toml
 #	[ -f ~/.config/zellij/config.kdl ] || ln -s $(PWD)/zellij ~/.config/zellij/config.kdl
@@ -41,6 +43,7 @@ clean:
 	rm -f ~/.config/atuin/config.toml
 	rm -f ~/.config/ghostty/config
 	rm -f ~/.config/helix/config.toml
+	rm -f ~/.config/rift/config.toml
 #	rm -f ~/.config/helix/themes
 
 	rm -f ~/.config/fish/config.fish

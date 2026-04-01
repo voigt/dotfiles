@@ -1,0 +1,181 @@
+# rift config — translated from aerospace config
+# Copy/symlink to ~/.config/rift/config.toml
+
+[settings]
+animate = true
+animation_duration = 0.3
+animation_fps = 100.0
+
+# AeroSpace: start-at-login = true
+# Rift: configure via system login items — no equivalent config option.
+
+# AeroSpace: automatically-unhide-macos-hidden-apps = false
+# Rift: no equivalent for controlling macOS "Hide application" behavior.
+
+# AeroSpace: on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# Rift: mouse_follows_focus provides similar behavior (moves mouse to focused window).
+mouse_follows_focus = true
+mouse_hides_on_focus = false
+focus_follows_mouse = false
+
+auto_focus_blacklist = []
+run_on_start = []
+hot_reload = true
+
+[settings.layout]
+# AeroSpace: default-root-container-layout = 'tiles' → "traditional" is the i3/sway equivalent.
+mode = "traditional"
+
+# AeroSpace: accordion-padding = 50
+# Rift: no accordion layout. The closest is "stack" layout with stack_offset.
+# [settings.layout.stack]
+# stack_offset = 50.0
+
+# AeroSpace: default-root-container-orientation = 'auto'
+# Rift: no equivalent auto-orientation based on monitor aspect ratio.
+
+# AeroSpace: enable-normalization-flatten-containers = true
+# AeroSpace: enable-normalization-opposite-orientation-for-nested-containers = true
+# Rift: no equivalent normalization settings; layout tree is managed differently.
+
+[settings.layout.gaps]
+# AeroSpace: inner.horizontal = 10, inner.vertical = 10
+# AeroSpace: outer.left/right/top/bottom = 10
+
+[settings.layout.gaps.outer]
+top = 10
+left = 10
+bottom = 10
+right = 10
+
+[settings.layout.gaps.inner]
+horizontal = 10
+vertical = 10
+
+[settings.ui.menu_bar]
+enabled = true
+
+[virtual_workspaces]
+enabled = true
+# AeroSpace uses workspaces named 1–9; rift uses 0-based indexing.
+# workspace_names map rift's 0-based indices to match aerospace numbering visually.
+default_workspace_count = 9
+workspace_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = false
+
+# AeroSpace: on-window-detected rules → rift: app_rules
+app_rules = [
+  # AeroSpace: if.app-id = 'com.1password.1password' → run = 'layout floating'
+  { app_id = "com.1password.1password", floating = true },
+
+  # AeroSpace: if.app-name-regex-substring = 'firefly' → run = 'layout floating'
+  # Rift uses app_name as substring match (case-insensitive), not regex.
+  # If regex is needed, use title_regex instead.
+  { app_name = "firefly", floating = true },
+
+  # Float any "Preferences" window for any app
+  { title_substring = "Preferences", floating = true },
+]
+
+workspace_rules = [
+  { workspace = 0, layout = "bsp" },
+  { workspace = 1, layout = "master_stack" },
+  { workspace = 2, layout = "scrolling" },
+]
+
+[modifier_combinations]
+# cmd+shift (AeroSpace cmd-shift-* bindings → move window)
+cmdshift = "Meta + Shift"
+# cmd+ctrl (AeroSpace cmd-ctrl-* → move-node-to-workspace)
+cmdctrl = "Meta + Ctrl"
+
+[keys]
+# AeroSpace: cmd-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
+"Meta + Enter" = { exec = ["open", "-n", "/Applications/Ghostty.app"] }
+
+# AeroSpace: cmd-e = 'exec-and-forget open ~/'
+"Meta + E" = { exec = ["open", "/Users/c.voigt"] }
+
+# AeroSpace: alt-period = 'layout tiles horizontal vertical'
+# Rift: toggle_orientation cycles the split orientation (horizontal ↔ vertical).
+"Alt + Period" = "toggle_orientation"
+
+# AeroSpace: alt-comma = 'layout accordion horizontal vertical'
+# Rift: no accordion layout. toggle_stack is the closest alternative (stacks windows).
+# "Alt + Comma" = "toggle_stack"  # commented out — behavior differs from accordion
+
+# AeroSpace: alt-f = 'fullscreen'
+"Alt + F" = "toggle_fullscreen"
+
+# AeroSpace: alt-shift-h/j/k/l = 'focus left/down/up/right'
+"Alt + Shift + H" = { move_focus = "left" }
+"Alt + Shift + J" = { move_focus = "down" }
+"Alt + Shift + K" = { move_focus = "up" }
+"Alt + Shift + L" = { move_focus = "right" }
+
+# AeroSpace: cmd-shift-h/j/k/l = 'move left/down/up/right'
+"cmdshift + H" = { move_node = "left" }
+"cmdshift + J" = { move_node = "down" }
+"cmdshift + K" = { move_node = "up" }
+"cmdshift + L" = { move_node = "right" }
+
+# AeroSpace: cmd-shift-left/down/up/right = 'move left/down/up/right' (arrow key aliases)
+"cmdshift + Left" = { move_node = "left" }
+"cmdshift + Down" = { move_node = "down" }
+"cmdshift + Up" = { move_node = "up" }
+"cmdshift + Right" = { move_node = "right" }
+
+# AeroSpace: alt-shift-period = 'resize smart -50'
+"Alt + Shift + Period" = "resize_window_shrink"
+
+# AeroSpace: alt-shift-comma = 'resize smart +50'
+"Alt + Shift + Comma" = "resize_window_grow"
+
+# AeroSpace: cmd-1..9 = 'workspace 1..9'
+# Rift uses 0-based workspace indices; workspace_names map them to "1"–"9".
+"Meta + 1" = { switch_to_workspace = 0 }
+"Meta + 2" = { switch_to_workspace = 1 }
+"Meta + 3" = { switch_to_workspace = 2 }
+"Meta + 4" = { switch_to_workspace = 3 }
+"Meta + 5" = { switch_to_workspace = 4 }
+"Meta + 6" = { switch_to_workspace = 5 }
+"Meta + 7" = { switch_to_workspace = 6 }
+"Meta + 8" = { switch_to_workspace = 7 }
+"Meta + 9" = { switch_to_workspace = 8 }
+
+# AeroSpace: cmd-ctrl-1..9 = 'move-node-to-workspace 1..9'
+"cmdctrl + 1" = { move_window_to_workspace = 0 }
+"cmdctrl + 2" = { move_window_to_workspace = 1 }
+"cmdctrl + 3" = { move_window_to_workspace = 2 }
+"cmdctrl + 4" = { move_window_to_workspace = 3 }
+"cmdctrl + 5" = { move_window_to_workspace = 4 }
+"cmdctrl + 6" = { move_window_to_workspace = 5 }
+"cmdctrl + 7" = { move_window_to_workspace = 6 }
+"cmdctrl + 8" = { move_window_to_workspace = 7 }
+"cmdctrl + 9" = { move_window_to_workspace = 8 }
+
+# AeroSpace: alt-esc = 'mode service' — switches to a secondary binding mode.
+# Rift: no binding modes. Service-mode actions are mapped to direct keybinds below.
+
+# AeroSpace service mode: r = ['reload-config', 'mode main']
+# Rift: hot_reload = true handles config reloading automatically. No keybind needed.
+
+# AeroSpace service mode: space = ['flatten-workspace-tree', 'mode main']
+# Rift: unjoin_windows is the equivalent — removes all joins in the current workspace.
+"Alt + Ctrl + Space" = "unjoin_windows"
+
+# AeroSpace service mode: esc = ['layout floating tiling', 'mode main']
+# Rift: toggle_window_floating
+"Alt + Ctrl + F" = "toggle_window_floating"
+
+# AeroSpace service mode: backspace = ['close-all-windows-but-current', 'mode main']
+# Rift: no equivalent for closing all windows except the current one.
+
+# AeroSpace service mode: alt-shift-h/j/k/l = ['join-with left/down/up/right', 'mode main']
+# In AeroSpace these are service-mode only; mapped here to Alt+Ctrl+H/J/K/L.
+"Alt + Ctrl + H" = { join_window = "left" }
+"Alt + Ctrl + J" = { join_window = "down" }
+"Alt + Ctrl + K" = { join_window = "up" }
+"Alt + Ctrl + L" = { join_window = "right" }
